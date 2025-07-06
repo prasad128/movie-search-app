@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../store";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 const Favorites = () => {
   const favorites = useSelector((state: RootState) => state.favorites.items);
@@ -8,8 +10,10 @@ const Favorites = () => {
   return (
     <div className="max-w-3xl mx-auto p-4">
       <h1 className="text-3xl font-bold text-center mb-6 text-purple-700">
-        {" "}
-        💖 Favorite Movies
+        <span className="mr-1.5 text-red-600">
+          <FontAwesomeIcon icon={faHeart} />
+        </span>
+        Favorite Movies
       </h1>
       {favorites.length === 0 ? (
         <p className="text-center text-gray-600">No favorites added yet.</p>
